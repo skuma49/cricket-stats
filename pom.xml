@@ -10,11 +10,11 @@
 	</parent>
 	<groupId>com.sushavi</groupId>
 	<artifactId>cricket-stats</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>cricket-stats</name>
 	<description>This project fetches stats of Cricket players</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
 		<spring-cloud-contract.version>3.0.3</spring-cloud-contract.version>
 	</properties>

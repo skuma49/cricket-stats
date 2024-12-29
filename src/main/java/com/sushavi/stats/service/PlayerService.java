@@ -69,7 +69,7 @@ public class PlayerService {
         playerRepository.findByPlayerNameAndPlayerRole(playerDto.getPlayerName(), playerDto.getPlayerRole()).ifPresentOrElse(
                 existingPlayer -> {
                     log.info("Player [ {} - {} ] already exists with ID {}", existingPlayer.getPlayerName(), existingPlayer.getPlayerRole(), existingPlayer.getPlayerId());
-                    throw new RuntimeException("Player already exists");
+                    throw new StatsException("Player already exists");
                 },
                 () -> {
                     log.info("Player [ {} - {} ] does not exist in the database", playerDto.getPlayerName(), playerDto.getPlayerRole());
@@ -98,7 +98,7 @@ public class PlayerService {
     public List<PlayerDto> getPlayersByCountry(Long idCountry) {
         log.info("Entering inside getPlayersByCountry  -- idCountry : [{}] ", idCountry);
         List<PlayerDto> playerDtoList = null;
-        var playersList = (List<Player>) playerRepository.findAllByIdCountry(idCountry);
+        var playersList = playerRepository.findAllByIdCountry(idCountry);
         log.info("No of Players found :: {}", playersList.size());
         playerDtoList = convertPlayersToDto(playersList);
         return playerDtoList;
