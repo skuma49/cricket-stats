@@ -17,6 +17,7 @@ public class StatsAppAspect {
     public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
 
+        log.info("Entering Method : {} with parameters {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
         Object result = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
         log.info("Method : {} with Execution time {}", joinPoint.getSignature().getName(), (endTime-startTime));
